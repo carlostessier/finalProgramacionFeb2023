@@ -16,7 +16,7 @@ class CarteraTest {
         } catch (Exception e) {
             fail("No debería lanzar excepción");
         }
-        assertEquals(0, cartera.buscarCriptomoneda("Bitcoin"));
+        assertEquals(0, cartera.buscarCriptomoneda("AyusoCoin"));
         assertEquals(1, cartera.buscarCriptomoneda("Luna"));
         assertEquals(-1, cartera.buscarCriptomoneda("Ether"));
     }
@@ -51,7 +51,6 @@ class CarteraTest {
     @org.junit.jupiter.api.Test
     void takeCriptoMoneda() {
         CriptoMoneda bitcoin = new CriptoMoneda("Bitcoin", 3, 10000);
-        CriptoMoneda luna = new CriptoMoneda("Luna", 0, 0);
         Cartera cartera = new Cartera("Carlos");
 
         try {
@@ -117,7 +116,7 @@ class CarteraTest {
         cartera.setCriptomonedas(criptomonedas);
         assertEquals("Bitcoin", cartera.getCriptomonedas()[0].getNombre());
         assertEquals("Luna", cartera.getCriptomonedas()[1].getNombre());
-        assertEquals(null, cartera.getCriptomonedas()[9]);
+        assertNull(cartera.getCriptomonedas()[9]);
     }
 
     @org.junit.jupiter.api.Test
